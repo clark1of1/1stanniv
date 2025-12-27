@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our First Anniversary 🤍</title>
+  <title>King & Queen 🤍</title>
 
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter&display=swap" rel="stylesheet">
@@ -11,22 +11,37 @@
 
 <body>
 
+<!-- 🔐 LOCK SCREEN -->
+<div id="lockScreen" class="lock">
+  <h1>For My Queen 🤍</h1>
+  <p>Enter the secret code</p>
+  <input type="password" id="codeInput" placeholder="Secret code">
+  <button onclick="unlock()">Unlock 💌</button>
+  <p id="error">Wrong code</p>
+</div>
+
+<!-- 🌸 MAIN SITE -->
+<div id="siteContent" class="hidden">
+
 <button class="toggle" onclick="toggleTheme()">🌙</button>
+
+<!-- Floating hearts container -->
+<div class="hearts"></div>
 
 <section class="hero">
   <h1>Happy 1st Anniversary</h1>
-  <p class="subtitle">One year, countless memories, and so much love 🤍</p>
+  <p class="subtitle">King & Queen — one year of love 🤍</p>
   <div class="heart">♡</div>
 </section>
 
 <section class="message">
-  <h2>A Message For You</h2>
+  <h2>A Message For My Queen</h2>
   <p>
     Thank you for being my safe place, my happiness, and my favorite person.
     This past year with you has meant more to me than I can ever put into words.
     I’m so grateful for every laugh, every talk, and every moment we share.
   </p>
-  <p class="signature">— Always yours</p>
+  <p class="signature">— Forever your King 👑</p>
 </section>
 
 <section class="letter">
@@ -46,14 +61,14 @@
 <section class="memories">
   <h2>Our Journey</h2>
   <div class="timeline">
-    <div class="event">💫 The day we started this beautiful journey</div>
-    <div class="event">🌸 Our first big memory together</div>
-    <div class="event">✨ All the little moments that mean everything</div>
+    <div class="event">💫 The day King met Queen</div>
+    <div class="event">🌸 Our first unforgettable memory</div>
+    <div class="event">✨ Every little moment that means everything</div>
   </div>
 </section>
 
 <section class="countdown">
-  <h2>Celebrating</h2>
+  <h2>Our Time Together</h2>
   <p id="daysTogether"></p>
 </section>
 
@@ -71,8 +86,10 @@
 </section>
 
 <footer>
-  <p>Made with love 🤍</p>
+  <p>Made with love by King 🤍</p>
 </footer>
+
+</div>
 
 <script src="script.js"></script>
 </body>
