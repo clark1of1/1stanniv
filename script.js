@@ -1,34 +1,5 @@
 // 🔐 SECRET CODE
 const SECRET_CODE = "143";
-let typingStarted = false;
-
-// Auto-unlock
-if (localStorage.getItem("unlocked") === "true") {
-  showSite();
-}
-
-function unlock() {
-  const input = document.getElementById("codeInput").value;
-  if (input === SECRET_CODE) {
-    localStorage.setItem("unlocked", "true");
-    showSite();
-  } else {
-    document.getElementById("error").style.display = "block";
-  }
-}
-
-function showSite() {
-  document.getElementById("lockScreen").style.display = "none";
-  document.getElementById("siteContent").style.display = "block";
-  startHearts();
-  startPopups();
-
-  if (!typingStarted) {
-    typingStarted = true;
-    document.getElementById("typewriter").innerHTML = "";
-    typeWriter();
-  }
-}
 
 // 📅 Dates
 const knownDate = new Date("2024-10-05");
@@ -44,13 +15,56 @@ document.getElementById("knownDays").innerText =
 document.getElementById("togetherDays").innerText =
   `We’ve been together for ${togetherDays} beautiful days 🤍`;
 
-// ✍️ Typewriter (FIXED)
+// ✍️ Typewriter text
 const letterText =
   "My Queen, from the moment we met, my life changed in the most beautiful way. " +
   "Knowing you, loving you, and choosing you has been my greatest joy. " +
   "Happy first anniversary 🤍";
-
 let i = 0;
+
+// 💬 Love messages popup
+const messages = [
+  "I’m so lucky to have you 🤍",
+  "You’re my favorite person 👑",
+  "Every day with you is special 💕",
+  "I choose you. Always.",
+  "You are my home 🤍"
+];
+
+let typingStarted = false;
+
+// Auto-unlock if already unlocked
+if (localStorage.getItem("unlocked") === "true") {
+  showSite();
+}
+
+// 🔐 Unlock function
+function unlock() {
+  const input = document.getElementById("codeInput").value;
+  if (input === SECRET_CODE) {
+    localStorage.setItem("unlocked", "true");
+    showSite();
+  } else {
+    document.getElementById("error").style.display = "block";
+  }
+}
+
+// Show main site
+function showSite() {
+  document.getElementById("lockScreen").style.display = "none";
+  document.getElementById("siteContent").style.display = "block";
+
+  startHearts();
+  startPopups();
+
+  if (!typingStarted) {
+    typingStarted = true;
+    document.getElementById("typewriter").innerHTML = "";
+    typeWriter();
+  }
+}
+
+// ✍️ Typewriter
 function typeWriter() {
   if (i < letterText.length) {
     document.getElementById("typewriter").innerHTML += letterText.charAt(i);
@@ -59,12 +73,12 @@ function typeWriter() {
   }
 }
 
-// 🌙 Dark mode
+// 🌙 Dark mode toggle
 function toggleTheme() {
   document.body.classList.toggle("dark");
 }
 
-// 💝 Surprise
+// 💝 Surprise reveal
 function reveal() {
   document.getElementById("secret").style.display = "block";
 }
@@ -81,7 +95,7 @@ function startHearts() {
   }, 400);
 }
 
-// 💕 Tap hearts (mobile & desktop)
+// 💕 Tap-to-spawn hearts
 document.addEventListener("click", (e) => {
   const heart = document.createElement("div");
   heart.className = "tap-heart";
@@ -92,21 +106,12 @@ document.addEventListener("click", (e) => {
   setTimeout(() => heart.remove(), 1000);
 });
 
-// 💬 Love popups (FIXED)
-const messages = [
-  "I’m so lucky to have you 🤍",
-  "You’re my favorite person 👑",
-  "Every day with you is special 💕",
-  "I choose you. Always.",
-  "You are my home 🤍"
-];
-
+// 💬 Love messages popup
 function startPopups() {
   setInterval(() => {
     const popup = document.getElementById("popup");
     popup.innerText = messages[Math.floor(Math.random() * messages.length)];
     popup.classList.add("show");
-
     setTimeout(() => popup.classList.remove("show"), 3000);
   }, 10000);
 }
