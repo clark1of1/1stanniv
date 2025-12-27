@@ -14,7 +14,7 @@ const messages = [
 const letterText =
   "My Queen, from the moment we met, my life changed in the most beautiful way. " +
   "Knowing you, loving you, and choosing you has been my greatest joy. " +
-  "Happy first anniversary 🤍";
+  "Happy 1st anniversary, my love 💙";
 let i = 0; // Must be declared before typeWriter() is called
 let typingStarted = false;
 
@@ -27,10 +27,10 @@ const knownDays = Math.ceil((today - knownDate) / (1000 * 60 * 60 * 24));
 const togetherDays = Math.ceil((today - togetherDate) / (1000 * 60 * 60 * 24));
 
 document.getElementById("knownDays").innerText =
-  `We’ve known each other for ${knownDays} days 🤍`;
+  `We’ve known each other for ${knownDays} days 💙`;
 
 document.getElementById("togetherDays").innerText =
-  `We’ve been together for ${togetherDays} beautiful days 🤍`;
+  `We’ve been together for ${togetherDays} beautiful days 💙`;
 
 // 🔐 Auto-unlock if already unlocked
 if (localStorage.getItem("unlocked") === "true") {
@@ -114,3 +114,50 @@ function startPopups() {
     setTimeout(() => popup.classList.remove("show"), 3000);
   }, 10000);
 }
+// Photo memory click-to-next
+const photoList = [
+    "images/photo1.jpg",
+    "images/photo2.jpg",
+    "images/photo3.jpg",
+    "images/photo4.jpg",
+    "images/photo5.jpg",
+    "images/photo6.jpg",
+    "images/photo7.jpg",
+    "images/photo9.jpg",
+    "images/photo10.jpg",
+    "images/photo11.jpg",
+    "images/photo12.jpg",
+    "images/photo13.jpg",
+    "images/photo14.jpg",
+    "images/photo15.jpg",
+    "images/photo16.jpg",
+    "images/photo17.jpg",
+    "images/photo18.jpg",
+    "images/photo19.jpg",
+    "images/photo20.jpg",
+    "images/photo21.jpg",
+    "images/photo22.jpg",
+    "images/photo23.jpg",
+    "images/photo24.jpg",
+    "images/photo25.jpg"
+  // Add all image paths here
+];
+
+let currentPhotoIndex = 0;
+const memoryPhoto = document.getElementById("memoryPhoto");
+const photoContainer = document.querySelector(".photo-container");
+
+photoContainer.addEventListener("click", () => {
+  // Clone current photo as previous
+  const oldPhoto = memoryPhoto.cloneNode();
+  oldPhoto.classList.add("previous");
+  photoContainer.appendChild(oldPhoto);
+
+  // Show next photo
+  currentPhotoIndex = (currentPhotoIndex + 1) % photoList.length;
+  memoryPhoto.src = photoList[currentPhotoIndex];
+
+  // Remove old previous photos to avoid too many
+  const previousPhotos = photoContainer.querySelectorAll(".previous");
+  if (previousPhotos.length > 5) previousPhotos[0].remove();
+});
