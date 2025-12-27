@@ -15,8 +15,13 @@
 <div id="lockScreen" class="lock">
   <h1>For My Queen 🤍</h1>
   <p>Enter the secret code</p>
+
   <input type="password" id="codeInput" placeholder="Secret code">
   <button onclick="unlock()">Unlock 💌</button>
+
+  <!-- Password hint -->
+  <p class="hint">Hint: Our love number ❤️</p>
+
   <p id="error">Wrong code</p>
 </div>
 
@@ -25,7 +30,7 @@
 
 <button class="toggle" onclick="toggleTheme()">🌙</button>
 
-<!-- Floating hearts container -->
+<!-- Floating hearts background -->
 <div class="hearts"></div>
 
 <section class="hero">
@@ -52,9 +57,9 @@
 <section class="gallery">
   <h2>Our Memories</h2>
   <div class="photos">
-    <img src="images/photo1.jpg" alt="Memory 1">
-    <img src="images/photo2.jpg" alt="Memory 2">
-    <img src="images/photo3.jpg" alt="Memory 3">
+    <img src="images/photo1.jpg">
+    <img src="images/photo2.jpg">
+    <img src="images/photo3.jpg">
   </div>
 </section>
 
@@ -76,7 +81,6 @@
   <h2>Our Song</h2>
   <audio controls>
     <source src="music/song.mp3" type="audio/mpeg">
-    Your browser does not support audio.
   </audio>
 </section>
 

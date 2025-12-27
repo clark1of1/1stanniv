@@ -1,7 +1,7 @@
-// 🔐 SECRET CODE (CHANGE THIS IF YOU WANT)
+// 🔐 SECRET CODE
 const SECRET_CODE = "143";
 
-// Unlock logic
+// Unlock
 function unlock() {
   const input = document.getElementById("codeInput").value;
   if (input === SECRET_CODE) {
@@ -15,19 +15,17 @@ function unlock() {
 }
 
 // Anniversary counter
-const startDate = new Date("2024-01-01"); // CHANGE DATE
+const startDate = new Date("2024-01-01");
 const today = new Date();
-const diffTime = Math.abs(today - startDate);
-const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+const diffDays = Math.ceil((today - startDate) / (1000 * 60 * 60 * 24));
 
 document.getElementById("daysTogether").innerText =
   `King & Queen have been together for ${diffDays} beautiful days 🤍`;
 
-// Typewriter letter
+// Typewriter
 const letterText =
-  "My Queen, one year ago I had no idea you would become my everything. " +
-  "You make every ordinary day feel magical, and I’m grateful for every moment with you. " +
-  "Here’s to us, forever. 🤍";
+  "My Queen, loving you has been the easiest and most beautiful thing I’ve ever done. " +
+  "Thank you for choosing me every day. Happy first anniversary 🤍";
 
 let i = 0;
 function typeWriter() {
@@ -43,12 +41,12 @@ function toggleTheme() {
   document.body.classList.toggle("dark");
 }
 
-// Surprise reveal
+// Surprise
 function reveal() {
   document.getElementById("secret").style.display = "block";
 }
 
-// 💕 Floating hearts
+// 💕 Floating hearts background
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("span");
@@ -56,7 +54,18 @@ function startHearts() {
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = 4 + Math.random() * 3 + "s";
     document.querySelector(".hearts").appendChild(heart);
-
     setTimeout(() => heart.remove(), 7000);
-  }, 300);
+  }, 350);
 }
+
+// 💗 Heart cursor trail
+document.addEventListener("mousemove", (e) => {
+  const heart = document.createElement("div");
+  heart.className = "cursor-heart";
+  heart.innerHTML = "♡";
+  heart.style.left = e.pageX + "px";
+  heart.style.top = e.pageY + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 1000);
+});
