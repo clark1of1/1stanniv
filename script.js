@@ -148,16 +148,20 @@ const memoryPhoto = document.getElementById("memoryPhoto");
 const photoContainer = document.querySelector(".photo-container");
 
 photoContainer.addEventListener("click", () => {
-  // Clone current photo as previous
+  // Animate click
+  memoryPhoto.classList.add("clicking");
+  setTimeout(() => memoryPhoto.classList.remove("clicking"), 150);
+
+  // Clone current photo as previous and keep stack
   const oldPhoto = memoryPhoto.cloneNode();
   oldPhoto.classList.add("previous");
   photoContainer.appendChild(oldPhoto);
 
-  // Show next photo
+  // Move to next photo
   currentPhotoIndex = (currentPhotoIndex + 1) % photoList.length;
   memoryPhoto.src = photoList[currentPhotoIndex];
 
-  // Remove old previous photos to avoid too many
+  // Adjust stacking: keep only 5 previous photos visible
   const previousPhotos = photoContainer.querySelectorAll(".previous");
   if (previousPhotos.length > 5) previousPhotos[0].remove();
 });

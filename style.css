@@ -217,12 +217,17 @@ footer {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
   z-index: 1;
 }
 
 .photo-container img.previous {
-  transform: scale(0.9) translateY(-10px);
-  opacity: 0.6;
+  transform: scale(0.9) translateY(15px);
+  opacity: 0.5;
   z-index: 0;
+}
+
+/* Click animation */
+.photo-container img.clicking {
+  transform: scale(1.05);
 }
