@@ -1,7 +1,8 @@
 // 🔐 SECRET CODE
 const SECRET_CODE = "143";
+let typingStarted = false;
 
-// Auto-unlock if already unlocked
+// Auto-unlock
 if (localStorage.getItem("unlocked") === "true") {
   showSite();
 }
@@ -20,7 +21,13 @@ function showSite() {
   document.getElementById("lockScreen").style.display = "none";
   document.getElementById("siteContent").style.display = "block";
   startHearts();
-  typeWriter();
+  startPopups();
+
+  if (!typingStarted) {
+    typingStarted = true;
+    document.getElementById("typewriter").innerHTML = "";
+    typeWriter();
+  }
 }
 
 // 📅 Dates
@@ -37,7 +44,7 @@ document.getElementById("knownDays").innerText =
 document.getElementById("togetherDays").innerText =
   `We’ve been together for ${togetherDays} beautiful days 🤍`;
 
-// ✍️ Typewriter
+// ✍️ Typewriter (FIXED)
 const letterText =
   "My Queen, from the moment we met, my life changed in the most beautiful way. " +
   "Knowing you, loving you, and choosing you has been my greatest joy. " +
@@ -62,7 +69,7 @@ function reveal() {
   document.getElementById("secret").style.display = "block";
 }
 
-// 💕 Floating hearts background
+// 💕 Floating hearts
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("span");
@@ -71,10 +78,10 @@ function startHearts() {
     heart.style.animationDuration = 4 + Math.random() * 3 + "s";
     document.querySelector(".hearts").appendChild(heart);
     setTimeout(() => heart.remove(), 7000);
-  }, 350);
+  }, 400);
 }
 
-// 💕 Tap-to-spawn hearts (mobile)
+// 💕 Tap hearts (mobile & desktop)
 document.addEventListener("click", (e) => {
   const heart = document.createElement("div");
   heart.className = "tap-heart";
@@ -85,7 +92,7 @@ document.addEventListener("click", (e) => {
   setTimeout(() => heart.remove(), 1000);
 });
 
-// 💬 Love messages popup
+// 💬 Love popups (FIXED)
 const messages = [
   "I’m so lucky to have you 🤍",
   "You’re my favorite person 👑",
@@ -94,10 +101,12 @@ const messages = [
   "You are my home 🤍"
 ];
 
-setInterval(() => {
-  const popup = document.getElementById("popup");
-  popup.innerText = messages[Math.floor(Math.random() * messages.length)];
-  popup.classList.add("show");
+function startPopups() {
+  setInterval(() => {
+    const popup = document.getElementById("popup");
+    popup.innerText = messages[Math.floor(Math.random() * messages.length)];
+    popup.classList.add("show");
 
-  setTimeout(() => popup.classList.remove("show"), 3000);
-}, 12000);
+    setTimeout(() => popup.classList.remove("show"), 3000);
+  }, 10000);
+}
