@@ -4,54 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our First Anniversary 🤍</title>
+
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <section class="hero">
-    <h1>Happy 1st Anniversary</h1>
-    <p class="subtitle">One year, countless memories, and so much love 🤍</p>
-    <div class="heart">♡</div>
-  </section>
+<button class="toggle" onclick="toggleTheme()">🌙</button>
 
-  <section class="message">
-    <h2>A Message For You</h2>
-    <p>
-      Thank you for being my safe place, my happiness, and my favorite person.
-      This past year with you has meant more to me than I can ever put into words.
-      I’m so grateful for every laugh, every late-night talk, and every moment we share.
-    </p>
-    <p class="signature">— Always yours</p>
-  </section>
+<section class="hero">
+  <h1>Happy 1st Anniversary</h1>
+  <p class="subtitle">One year, countless memories, and so much love 🤍</p>
+  <div class="heart">♡</div>
+</section>
 
-  <section class="memories">
-    <h2>Our Journey</h2>
-    <div class="timeline">
-      <div class="event">
-        <span>💫</span>
-        <p>The day we started this beautiful journey</p>
-      </div>
-      <div class="event">
-        <span>🌸</span>
-        <p>Our first big memory together</p>
-      </div>
-      <div class="event">
-        <span>✨</span>
-        <p>All the little moments that mean everything</p>
-      </div>
-    </div>
-  </section>
+<section class="message">
+  <h2>A Message For You</h2>
+  <p>
+    Thank you for being my safe place, my happiness, and my favorite person.
+    This past year with you has meant more to me than I can ever put into words.
+    I’m so grateful for every laugh, every talk, and every moment we share.
+  </p>
+  <p class="signature">— Always yours</p>
+</section>
 
-  <section class="countdown">
-    <h2>Celebrating</h2>
-    <p id="daysTogether"></p>
-  </section>
+<section class="letter">
+  <h2>A Letter From My Heart</h2>
+  <p id="typewriter"></p>
+</section>
 
-  <footer>
-    <p>Made with love 🤍</p>
-  </footer>
+<section class="gallery">
+  <h2>Our Memories</h2>
+  <div class="photos">
+    <img src="images/photo1.jpg" alt="Memory 1">
+    <img src="images/photo2.jpg" alt="Memory 2">
+    <img src="images/photo3.jpg" alt="Memory 3">
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<section class="memories">
+  <h2>Our Journey</h2>
+  <div class="timeline">
+    <div class="event">💫 The day we started this beautiful journey</div>
+    <div class="event">🌸 Our first big memory together</div>
+    <div class="event">✨ All the little moments that mean everything</div>
+  </div>
+</section>
+
+<section class="countdown">
+  <h2>Celebrating</h2>
+  <p id="daysTogether"></p>
+</section>
+
+<section class="music">
+  <h2>Our Song</h2>
+  <audio controls>
+    <source src="music/song.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+</section>
+
+<section class="surprise">
+  <button onclick="reveal()">Click for a surprise 💝</button>
+  <p id="secret">I choose you. Always. 🤍</p>
+</section>
+
+<footer>
+  <p>Made with love 🤍</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
