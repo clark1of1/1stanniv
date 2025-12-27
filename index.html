@@ -19,9 +19,7 @@
   <input type="password" id="codeInput" placeholder="Secret code">
   <button onclick="unlock()">Unlock 💌</button>
 
-  <!-- Password hint -->
   <p class="hint">Hint: Our love number ❤️</p>
-
   <p id="error">Wrong code</p>
 </div>
 
@@ -43,8 +41,7 @@
   <h2>A Message For My Queen</h2>
   <p>
     Thank you for being my safe place, my happiness, and my favorite person.
-    This past year with you has meant more to me than I can ever put into words.
-    I’m so grateful for every laugh, every talk, and every moment we share.
+    Every day with you means more to me than words can explain.
   </p>
   <p class="signature">— Forever your King 👑</p>
 </section>
@@ -63,18 +60,10 @@
   </div>
 </section>
 
-<section class="memories">
-  <h2>Our Journey</h2>
-  <div class="timeline">
-    <div class="event">💫 The day King met Queen</div>
-    <div class="event">🌸 Our first unforgettable memory</div>
-    <div class="event">✨ Every little moment that means everything</div>
-  </div>
-</section>
-
 <section class="countdown">
   <h2>Our Time Together</h2>
-  <p id="daysTogether"></p>
+  <p id="knownDays"></p>
+  <p id="togetherDays"></p>
 </section>
 
 <section class="music">
@@ -94,6 +83,9 @@
 </footer>
 
 </div>
+
+<!-- 💬 Love popup -->
+<div id="popup" class="popup"></div>
 
 <script src="script.js"></script>
 </body>

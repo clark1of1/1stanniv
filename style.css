@@ -7,12 +7,11 @@
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(to bottom, #fff1f5, #ffffff);
-  color: #333;
   text-align: center;
   overflow-x: hidden;
 }
 
-/* 🔐 Lock screen */
+/* 🔐 Lock */
 .lock {
   height: 100vh;
   display: flex;
@@ -51,7 +50,7 @@ body {
 
 /* Sections */
 section {
-  padding: 60px 20px;
+  padding: 55px 20px;
   max-width: 900px;
   margin: auto;
 }
@@ -67,22 +66,11 @@ section {
 
 .heart {
   font-size: 3rem;
-  margin-top: 20px;
   animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
   50% { transform: scale(1.2); }
-}
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 20px;
-}
-
-.signature {
-  margin-top: 15px;
-  font-style: italic;
 }
 
 .letter {
@@ -99,18 +87,6 @@ h2 {
 
 .photos img {
   width: 100%;
-  border-radius: 12px;
-}
-
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.event {
-  background: white;
-  padding: 15px;
   border-radius: 12px;
 }
 
@@ -137,22 +113,13 @@ h2 {
   font-size: 1.2rem;
 }
 
-.toggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  border-radius: 50%;
-  padding: 10px;
-}
-
-/* 🌙 Dark mode */
+/* 🌙 Dark */
 .dark {
   background: linear-gradient(to bottom, #111, #000);
   color: #f5f5f5;
 }
 
 .dark section,
-.dark .event,
 .dark .letter {
   background: #111;
 }
@@ -173,12 +140,11 @@ h2 {
   }
 }
 
-/* 💗 Cursor hearts */
-.cursor-heart {
+/* 💕 Tap hearts */
+.tap-heart {
   position: absolute;
   pointer-events: none;
   color: #ff8fab;
-  font-size: 14px;
   animation: fadeUp 1s forwards;
 }
 
@@ -189,14 +155,31 @@ h2 {
   }
 }
 
+/* 💬 Popup */
+.popup {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffb6c1;
+  padding: 12px 20px;
+  border-radius: 25px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.popup.show {
+  opacity: 1;
+}
+
 /* 📱 Mobile polish */
 @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
   section {
     padding: 45px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
   }
 }
 
