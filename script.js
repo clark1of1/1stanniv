@@ -1,6 +1,23 @@
 // 🔐 SECRET CODE
 const SECRET_CODE = "143";
 
+// 💬 Love messages popup
+const messages = [
+  "I’m so lucky to have you 🤍",
+  "You’re my favorite person 👑",
+  "Every day with you is special 💕",
+  "I choose you. Always.",
+  "You are my home 🤍"
+];
+
+// ✍️ Typewriter text
+const letterText =
+  "My Queen, from the moment we met, my life changed in the most beautiful way. " +
+  "Knowing you, loving you, and choosing you has been my greatest joy. " +
+  "Happy first anniversary 🤍";
+let i = 0; // Must be declared before typeWriter() is called
+let typingStarted = false;
+
 // 📅 Dates
 const knownDate = new Date("2024-10-05");
 const togetherDate = new Date("2024-12-28");
@@ -15,25 +32,7 @@ document.getElementById("knownDays").innerText =
 document.getElementById("togetherDays").innerText =
   `We’ve been together for ${togetherDays} beautiful days 🤍`;
 
-// ✍️ Typewriter text
-const letterText =
-  "My Queen, from the moment we met, my life changed in the most beautiful way. " +
-  "Knowing you, loving you, and choosing you has been my greatest joy. " +
-  "Happy first anniversary 🤍";
-let i = 0;
-
-// 💬 Love messages popup
-const messages = [
-  "I’m so lucky to have you 🤍",
-  "You’re my favorite person 👑",
-  "Every day with you is special 💕",
-  "I choose you. Always.",
-  "You are my home 🤍"
-];
-
-let typingStarted = false;
-
-// Auto-unlock if already unlocked
+// 🔐 Auto-unlock if already unlocked
 if (localStorage.getItem("unlocked") === "true") {
   showSite();
 }
@@ -83,7 +82,7 @@ function reveal() {
   document.getElementById("secret").style.display = "block";
 }
 
-// 💕 Floating hearts
+// 💕 Floating hearts background
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("span");
